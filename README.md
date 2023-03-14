@@ -29,6 +29,8 @@ To deploy the project, follow these steps:
 - Next.js
 - React
 - Tailwind CSS
+- Highlight.js
+- Jest/React Testing Library
 
 ## Contact
 
