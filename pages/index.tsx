@@ -4,6 +4,7 @@ import logo from "../public/images/favicon.jpg";
 import { pricing } from "Utils/data";
 import CodeSnippet from "../Components/Code/CodeSnippet";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function Home() {
   const { data } = pricing;
@@ -11,7 +12,15 @@ export default function Home() {
   const code2 = `print("Hello World!!")`;
   return (
     <>
-      <nav className="flex justify-between py-3 shadow-lg">
+      <Head>
+        <title>Zazzani</title>
+        <meta
+          name="description"
+          content="Generating Ai solutions with Zazzani"
+        />
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
+      <nav className="flex justify-between py-3  shadow-lg">
         <div className="mx-auto w-[90%] max-w-[1440px]">
           <div className="flex items-center w-[30px] h-[25px]">
             <Image
