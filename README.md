@@ -28,3 +28,5 @@ pnpm create next-app --example with-jest with-jest-app
 npm test
 ```
 # Zazzani
+Assessment task for frontend intern position at Zazzani. 
+A project built with Nextjs, Tailwind Css, Jest and Highlightjs.
