@@ -12,7 +12,8 @@
     "next": "latest",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "sharp": "^0.31.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.4",
@@ -21,6 +22,7 @@
     "@types/react": "18.0.9",
     "@types/testing-library__jest-dom": "5.14.5",
     "autoprefixer": "^10.4.14",
+    "eslint": "^8.36.0",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
     "postcss": "^8.4.21",
