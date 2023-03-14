@@ -1,65 +1,62 @@
-import Head from 'next/head'
-import Image from 'next/image'
-
-import styles from '@/pages/index.module.css'
+import styles from "./index.module.css";
+import Card from "../Components/Pricing/Card";
+import logo from "../public/images/favicon.jpg";
+import { pricing } from "Utils/data";
+import CodeSnippet from "../Components/Code/CodeSnippet";
+import Image from "next/image";
 
 export default function Home() {
+  const { data } = pricing;
+  const code = `console.log("Hello, World!");`;
+  const code2 = `print("Hello World!!")`;
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a href="https://vercel.com/new" className={styles.card}>
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <>
+      <nav className="flex justify-between py-3 shadow-lg">
+        <div className="mx-auto w-[90%] max-w-[1440px]">
+          <div className="flex items-center w-[30px] h-[25px]">
+            <Image
+              src={logo}
+              alt="zazzani logo"
+              className=" object-contain items-center flex"
+            />
+            <span className="logo font-bold text-2xl mb-1 ml-[-4px]">
+              azzani
+            </span>
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  )
+      </nav>
+      <div className={styles.container}>
+        <main>
+          <div className="text-center">
+            <h1 className="font-bold text-[30px] md:text-[36px] lg:text-[45px]">
+              Ready to get <span className="amber-red">Started</span>
+            </h1>
+            <p className="text-gray-500 text-base">
+              Choose a plan tailored to your needs
+            </p>
+          </div>
+          <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto`}>
+            {data.map((data, index) => (
+              <Card
+                id={data.id}
+                key={data.id}
+                price={data.price}
+                title={data.title}
+                features={data.features}
+                billing={data.billing}
+                button_text={data.button_text}
+                popular={data.popular}
+              />
+            ))}
+          </div>
+          <div className="my-10">
+            <h1 className="text-center font-bold text-[30px] md:text-[36px] lg:text-[45px]">
+              Your Generated <span className="">Code</span>
+            </h1>
+            <CodeSnippet languageprop="python" codeprop={code2} />
+          </div>
+        </main>
+      </div>
+    </>
+  );
 }
